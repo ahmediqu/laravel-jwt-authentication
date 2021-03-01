@@ -1,7 +1,13 @@
 
 ## Project Install process
+
+```
 php artisan serve
+```
+```
 php artisan migrate fresh --seed
+```
+
 
 ## Api end point 
 Login
