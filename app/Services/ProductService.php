@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Models\Product;
-use Illuminate\Support\Facades\Storage;
 
 class ProductService extends BaseService
 {
@@ -37,11 +36,9 @@ class ProductService extends BaseService
 
     public function uploadImage($image)
     {
-
         $imageName = time() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('images'), $imageName);
-        return $image;
-
+        return $imageName;
     }
 
 

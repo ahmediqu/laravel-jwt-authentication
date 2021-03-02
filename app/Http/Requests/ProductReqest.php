@@ -22,19 +22,8 @@ class ProductReqest extends FormRequest
         return [
             'title' => 'required',
             'price' => 'required|numeric',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
-    }
-
-    protected function failedValidation(Validator $validator)
-    {
-        $response = new JsonResponse(['data' => [],
-            'meta' => [
-                'message' => 'The given data is invalid',
-                'errors' => $validator->errors()
-            ]], 422);
-
-        throw new ValidationException($validator, $response);
     }
 
 }
